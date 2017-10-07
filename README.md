@@ -30,7 +30,36 @@ Ensure you have NodeJS installed.
     npm install
     ``` 
 
-3. Run the webpack code compiler and watcher:
+3. Run the setup script:
+
+    Running the setup script will provide an interactive prompt which will replace the existing project names with your project's names and identifiers.
+
+    ```bash
+    npm run setup
+
+    > node setup.js
+
+    What is the project cordova name? (e.g. ca.udia.phaserCordovaES6) com.mysite.mygame
+    What is the project package name? (e.g. phaser-cordova-es6) my-game
+    What is the project display name? (e.g. Phaser Cordova Quickstart) My Game
+    (Optional) What is the project description? This is my fun phaser game!
+    What is the author's email? (e.g. admin@alexander-wong.com) dev@test.com
+    What is the author's name? (e.g. Alexander Wong) Dev Test
+    (Optional) What is the author's site? (e.g. https://alexander-wong.com) https://test.com
+    Updating package.json...
+    Updating config.xml...
+    Updating www/index.html...
+    Updating package-lock.json...
+    ```
+
+    It is at this point where you can remove the existing `.git` directory and initialize your project.
+
+    ```bash
+    rm -rf .git
+    git init
+    ```
+
+4. Run the webpack code compiler and watcher:
 
     Run:
 
@@ -40,13 +69,15 @@ Ensure you have NodeJS installed.
 
     This will run webpack which minimizes and compile the **development** bundle into `www`.
 
-4. Run Cordova commands.
+5. Run Cordova commands.
 
     In a new terminal window, run the following
 
     ```bash
     # If the platform has not been added, add the browser platform.
     cordova platform add browser # peer dependency errors here can be ignored
+
+    # After the platform is added, you can use live-reload
     # To test browser development locally
     cordova run browser -- --live-reload
     ```

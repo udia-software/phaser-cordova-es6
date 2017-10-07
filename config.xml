@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="ca.udia.phaserCordovaQuickstart" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>phaser-cordova-quickstart</name>
+<widget id="ca.udia.phaserCordovaES6" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Phaser Cordova Quickstart</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Phaser-Cordova-Description
     </description>
     <author email="admin@alexander-wong.com" href="https://alexander-wong.com">
         Alexander Wong
