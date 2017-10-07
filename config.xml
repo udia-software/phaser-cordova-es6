@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="ca.udia.phaser-cordova-quickstart" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="ca.udia.phaserCordovaQuickstart" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>phaser-cordova-quickstart</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -24,7 +24,9 @@
     </platform>
     <preference name="Fullscreen" value="true" />
     <preference name="orientation" value="landscape" />
-    <engine name="browser" spec="^4.1.0" />
+    <engine name="android" spec="^6.3.0" />
+    <engine name="browser" spec="^5.0.0" />
+    <engine name="ios" spec="^4.5.1" />
     <plugin name="cordova-plugin-browsersync" spec="^1.1.0" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
 </widget>
