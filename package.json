@@ -1,7 +1,7 @@
 {
     "name": "phaser-cordova-es6",
     "displayName": "Phaser Cordova Quickstart",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A bootstrap project for building Phaser games using ES6 and Webpack.",
     "repository": {
         "type": "git",
