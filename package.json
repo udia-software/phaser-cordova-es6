@@ -2,7 +2,7 @@
     "name": "phaser-cordova-es6",
     "displayName": "Phaser Cordova Quickstart",
     "version": "1.0.0",
-    "description": "Phaser-Cordova-Description",
+    "description": "A bootstrap project for building Phaser games using ES6 and Webpack.",
     "repository": {
         "type": "git",
         "url": "https://github.com/udia-software/phaser-cordova-es6.git"
