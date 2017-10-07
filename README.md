@@ -45,6 +45,8 @@ Ensure you have NodeJS installed.
     In a new terminal window, run the following
 
     ```bash
+    # If the platform has not been added, add the browser platform.
+    cordova platform add browser # peer dependency errors here can be ignored
     # To test browser development locally
     cordova run browser -- --live-reload
     ```

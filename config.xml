@@ -27,6 +27,6 @@
     <engine name="android" spec="^6.3.0" />
     <engine name="browser" spec="^5.0.0" />
     <engine name="ios" spec="^4.5.1" />
-    <plugin name="cordova-plugin-browsersync" spec="^1.1.0" />
+    <plugin name="cordova-plugin-browsersync" spec="git+ssh://git@github.com/awwong1/cordova-plugin-browsersync.git" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
 </widget>
