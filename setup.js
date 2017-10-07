@@ -6,7 +6,8 @@ const fs = require('fs')
 const path = require('path')
 
 /* eslint-disable no-useless-escape */
-const PACKAGE_NAME_RE = /^([a-zA-Z0-9]{1,}[.]*)+$/
+const CORDOVA_NAME_RE = /^([a-zA-Z0-9]{1,}[.]*)+$/
+const PACKAGE_NAME_RE = /^(?:@[a-z0-9-~][a-z0-9-._~]*)?[a-z0-9-~][a-z0-9-._~]*$/
 const DISPLAY_NAME_RE = /^[a-zA-Z0-9\ ]+$/
 const EMAIL_RE = /.+@.+\..+/i
 /* eslint-enable no-useless-escape */
@@ -27,6 +28,7 @@ const REPLACE_AUTHOR_NAME = 'Alexander Wong'
 const REPLACE_AUTHOR_SITE = 'https://alexander-wong.com'
 
 // values we are replacing the strings with
+var cordovaName
 var packageName
 var displayName
 var description
@@ -36,6 +38,24 @@ var authorSite
 
 function trim (val) {
   return val.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '')
+}
+
+function getCordovaName () {
+  while (!cordovaName) {
+    var answer = trim(
+      readlineSync.question(
+        `What is the project cordova name? (e.g. ${REPLACE_CORDOVA_NAME}) `
+      )
+    )
+    if (CORDOVA_NAME_RE.test(answer)) {
+      cordovaName = `${answer}`
+    } else {
+      console.log(
+        `\tInvalid entry: '${answer}' (must be alphanumeric with periods)`
+      )
+    }
+  }
+  getPackageName()
 }
 
 function getPackageName () {
@@ -49,7 +69,7 @@ function getPackageName () {
       packageName = `${answer}`
     } else {
       console.log(
-        `\tInvalid entry: '${answer}' (must be alphanumeric with periods)`
+        `\tInvalid entry: '${answer}' (must be valid JS package name)`
       )
     }
   }
@@ -123,19 +143,12 @@ function getAuthorSite () {
 }
 
 function replaceFilesAndPrompt () {
-  console.log(packageName)
-  console.log(displayName)
-  console.log(description)
-  console.log(authorEmail)
-  console.log(authorName)
-  console.log(authorSite)
-
   // config.xml
   fs.readFile(CONFIG_PATH, 'utf8', function (err, data) {
     console.log('Updating config.xml...')
     if (err) return console.error(err)
     var result = data
-    result = result.replace(REPLACE_CORDOVA_NAME, packageName)
+    result = result.replace(REPLACE_CORDOVA_NAME, cordovaName)
     result = result.replace(REPLACE_DISPLAY_NAME, displayName)
     result = result.replace(REPLACE_DESCRIPTION, description)
     result = result.replace(REPLACE_AUTHOR_EMAIL, authorEmail)
@@ -161,12 +174,12 @@ function replaceFilesAndPrompt () {
     })
   })
   // package-lock.json
-  fs.readFile(PACKAGE_PATH, 'utf8', function (err, data) {
+  fs.readFile(PACKAGE_LOCK_PATH, 'utf8', function (err, data) {
     console.log('Updating package-lock.json...')
     if (err) return console.error(err)
     var result = data
     result = result.replace(REPLACE_PACKAGE_NAME, packageName)
-    fs.writeFile(PACKAGE_PATH, result, 'utf8', function (err) {
+    fs.writeFile(PACKAGE_LOCK_PATH, result, 'utf8', function (err) {
       if (err) return console.error(err)
     })
   })
@@ -180,6 +193,8 @@ function replaceFilesAndPrompt () {
       if (err) return console.error(err)
     })
   })
+
+  console.log('Done!')
 }
 
-getPackageName()
+getCordovaName()
