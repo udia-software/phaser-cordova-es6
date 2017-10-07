@@ -1,6 +1,8 @@
 /**
  * Script to customize project after git clone.
+ * Will replace all bootstrap string variables with user defined project vars.
  */
+
 const readlineSync = require('readline-sync')
 const fs = require('fs')
 const path = require('path')
@@ -47,7 +49,9 @@ function getCordovaName () {
         `What is the project cordova name? (e.g. ${REPLACE_CORDOVA_NAME}) `
       )
     )
-    if (CORDOVA_NAME_RE.test(answer)) {
+    if (answer === REPLACE_CORDOVA_NAME) {
+      console.log(`\tInvalid entry: (cannot be ${REPLACE_CORDOVA_NAME})`)
+    } else if (CORDOVA_NAME_RE.test(answer)) {
       cordovaName = `${answer}`
     } else {
       console.log(
@@ -193,8 +197,19 @@ function replaceFilesAndPrompt () {
       if (err) return console.error(err)
     })
   })
-
-  console.log('Done!')
 }
 
-getCordovaName()
+/**
+ * If the setup script has run already, don't do anything else
+ */
+function checkSetupRan () {
+  fs.readFile(CONFIG_PATH, 'utf8', function (err, data) {
+    if (err) console.error(err)
+    if (data.indexOf(REPLACE_CORDOVA_NAME) >= 0) {
+      getCordovaName()
+    } else {
+      console.log('Setup script was already run. Doing nothing.')
+    }
+  })
+}
+checkSetupRan()

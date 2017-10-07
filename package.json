@@ -36,7 +36,7 @@
         "cordova-android": "^6.3.0",
         "cordova-browser": "^5.0.0",
         "cordova-ios": "^4.5.1",
-        "cordova-plugin-browsersync": "git+ssh://git@github.com/awwong1/cordova-plugin-browsersync.git",
+        "cordova-plugin-browsersync": "git+https://git@github.com/awwong1/cordova-plugin-browsersync.git",
         "cordova-plugin-whitelist": "^1.3.2",
         "phaser-ce": "^2.8.8"
     },
