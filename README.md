@@ -1,6 +1,15 @@
 # Phaser Cordova ES6
 
-A bootstrap project for building Phaser games using ES6 and Webpack which can be run in the web browser and as a iOS or Android application.
+[![Dependency Status](https://img.shields.io/david/udia-software/phaser-cordova-es6.svg)](https://david-dm.org/udia-software/phaser-cordova-es6)
+[![Dev-Dependency Status](https://img.shields.io/david/dev/udia-software/phaser-cordova-es6.svg)](https://david-dm.org/udia-software/phaser-cordova-es6#info=devDependencies)
+
+A bootstrap project for building Phaser games using ES6 and Webpack.
+
+This project supports Cordova, specifically compiling to:
+
+* Web Browsers
+* iOS
+* Android
 
 ## Development
 

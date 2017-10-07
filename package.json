@@ -3,6 +3,10 @@
     "displayName": "Phaser Cordova Quickstart",
     "version": "1.0.0",
     "description": "A Phaser, Cordova, Webpack (ES6) bootstrap/boilerplate project.",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/udia-software/phaser-cordova-es6.git"
+    },
     "scripts": {
         "dev": "webpack",
         "deploy": "webpack --config webpack.production.config.js",
