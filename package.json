@@ -33,7 +33,7 @@
         "webpack": "^3.6.0"
     },
     "dependencies": {
-        "cordova-android": "^6.3.0",
+        "cordova-android": "^7.0.0",
         "cordova-browser": "^5.0.0",
         "cordova-ios": "^4.5.1",
         "cordova-plugin-browsersync": "git+https://git@github.com/awwong1/cordova-plugin-browsersync.git",
