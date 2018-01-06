@@ -1,5 +1,7 @@
 # Phaser Cordova ES6
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/udia-software/phaser-cordova-es6.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/udia-software/phaser-cordova-es6.svg?branch=master)](https://travis-ci.org/udia-software/phaser-cordova-es6)
 [![Dependency Status](https://img.shields.io/david/udia-software/phaser-cordova-es6.svg)](https://david-dm.org/udia-software/phaser-cordova-es6)
 [![Dev-Dependency Status](https://img.shields.io/david/dev/udia-software/phaser-cordova-es6.svg)](https://david-dm.org/udia-software/phaser-cordova-es6#info=devDependencies)
